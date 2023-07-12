@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <form action="/course/{{course.course_id}}/update" method="POST" id="create-course-form">
+        <div>
+            <label>Course Code </label>
+            <input type="text" name="code" disabled value="{{course.course_code}}" />
+        </div>
+        
+        <div>
+            <label>Course Name <a style="color:tomato;">*</a></label>
+            <input type="text" name="c_name" required value="{{course.course_name}}" />
+        </div>
+        <div>
+            <label>Course Description:</label>
+            <input type="text" name="desc" value="{{course.course_description}}" />
+        </div>
+        <div>
+            <input type="submit" value = "Update">
+            </div>
+        </form>
+</body>
+</html>

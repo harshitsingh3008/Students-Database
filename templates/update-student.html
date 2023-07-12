@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Add Student</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <form action="/student/{{data.student_id}}/update" method="POST" id="create-student-form">
+        <div>
+            <label>Roll Number</label>
+            <input type="text" name="roll" disabled  value="{{data.roll_number}}"/>
+        </div>
+        <div>
+            <label>First Name  <a style="color:tomato;">*</a></label>
+            <input type="text" name="f_name" required  value="{{data.first_name}}"/>
+        </div>
+        <div>
+            <label>Last Name</label>
+            <input type="text" name="l_name" value="{{data.last_name}}"/>
+        </div>
+        <div>
+            <label>Select Course</label>
+           <select name="course" id="course">
+            {% for c in courses %}
+                <option value="{{c.course_id}}">{{c.course_name}}</option>
+            {% endfor %}
+           </select>
+        </div>
+        <div>
+            <input type="submit" value = "Update">
+        </div>
+    </form>
+</body>
+</html>

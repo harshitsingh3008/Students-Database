@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Student Details</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h1 style="text-align: center;">Student Details</h1>
+    <table id = "student-detail">
+        <thead>
+            <tr>
+                <th>Roll Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{data.roll_number}}</td>
+                <td>{{data.first_name}}</td>
+                <td>{{data.last_name}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h1 style="text-align: center;">Enrollment list</h1>
+    {% if courses|length > 0 %}
+    <table id="student-enrollments">
+        <thead>
+            <tr>
+                <th>SNo  </th>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>Course Description  </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in courses %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{c.course_code}}</td>
+                <td>{{c.course_name}}</td>
+                <td>{{c.course_description}}</td>
+                <td>
+                <a href="/student/{{data.student_id}}/withdraw/{{c.course_id}}">Withdraw</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    {% endif %}
+        <a href="/"><h3 style="text-align: center;">Go Back</h3></a>
+        
+</body>
+</html>
